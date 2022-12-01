@@ -1,5 +1,10 @@
 import random
 
+# namedb명단에서 랜덤으로 8명 뽑음
+def pickStudent(num):
+    pickStudent = random.sample(num, 8)
+    return pickStudent
+
 class DataBase:
     def __init__(self):
         self.namedb = []
@@ -22,14 +27,22 @@ class DataBase:
             if i == studentname:
                 self.namedb.remove(i)
 
-    #namedb명단에서 랜덤으로 8명 뽑음
-    def pickStudent(self):
-        self.pickStudent = random.sample(self.namedb, 8)
 
     def setteachersays(self):
-        self.teachersays.append(random.sample(self.pickStudent,1))
+        picked = pickStudent(self.namedb)
+        a = random.choice(picked)
+        while a not in self.teachersays:
+            self.teachersays.append(a)
         self.currentstage += 1
         return self.teachersays[self.currentstage]
+        # if a not in self.teachersays:
+        #     self.teachersays.append(a)
+        # else:
+        #
+        # self.currentstage += 1
+        # return self.teachersays[self.currentstage]
+
+
 
 
 
