@@ -143,6 +143,7 @@ class Ui_MainWindow(object):
         self.namedb.append(text)
         # self.StudentList.setText(text)
         self.showStudentList()
+        self.Input.clear()
 
     def delbuttonClicked(self):
         for i in self.namedb:
